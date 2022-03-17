@@ -3,6 +3,7 @@ var express = require("express");
 var app = express();
 var Usuario = require("./model/Usuario");
 var path = require("path");
+var upload = require("./config/multer.js");
 //imports
 
 //configs
@@ -41,12 +42,12 @@ app.get("/add", function (req, res) {
 //fim abrir tela de add
 
 //adicionar dados no banco
-app.post("/add", function (req, res) {
+app.post("/add", upload.single("foto"), function (req, res) {
   var usuario = new Usuario({
     nome: req.body.nome,
     email: req.body.email,
     senha: req.body.senha,
-    foto: req.body.foto,
+    foto: req.file.filename,
   });
 
   usuario.save(function (err, docs) {
