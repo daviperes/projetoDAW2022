@@ -1,4 +1,4 @@
-<%-include('cabecalho.ejs');%>   
+<%-include('../cabecalho.ejs');%>   
 
 <form method="post">
     <input type="text" class="pesquisa" name="pesquisa">
@@ -25,7 +25,9 @@
             <td><%=usuario.nome%></td>
             <td><%=usuario.email%></td>
             <td><%=usuario.senha%></td>
-            <td><%=usuario.foto%></td>
+            <td>
+                <img class="foto-user" src="/fotos/<%=usuario.foto%>">                
+            </td>
             <td>
                 <a href="/edt/<%=usuario._id%>">
                     <img src="/images/edit.png">
@@ -39,4 +41,4 @@
         </tr>
         <% }) %>
     </table>
-<%-include('rodape.ejs');%>
+<%-include('../rodape.ejs');%>

@@ -1,0 +1,12 @@
+<%-include('../cabecalho.ejs');%>
+   <form method="post" enctype="multipart/form-data">
+       Nome: <input type="text" name="nome" 
+        placeholder="Digite seu nome"><br>
+       Descrição: <input type="text" name="descricao" 
+        placeholder="Digite a descrição do projeto"><br>
+       Data de inicio do projeto: <input type="date" name="dataInicio"><br>
+       Previsão de termino do projeto: <input type="date" name="previsaoTermino"><br>
+       Foto: <input type="file" name="foto"><br>
+       <input type="submit" value="Enviar">
+   </form> 
+<%-include('../rodape.ejs');%>

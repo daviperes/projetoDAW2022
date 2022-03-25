@@ -2,6 +2,7 @@
 var express = require("express");
 var app = express();
 var Usuario = require("./model/Usuario");
+var Projeto = require("./model/Projeto");
 var path = require("path");
 var upload = require("./config/multer.js");
 //imports
@@ -13,36 +14,42 @@ app.use(express.urlencoded({ extended: false }));
 //configs
 
 //rota para listar dados
-app.get("/", function (req, res) {
+app.get("/usuario/", function (req, res) {
   Usuario.find({}).then(function (docs) {
-    res.render("list.ejs", { Usuarios: docs });
+    res.render("usuario/list.ejs", { Usuarios: docs });
   });
 });
 
-app.post("/", function (req, res) {
+app.post("/usuario/", function (req, res) {
   if (req.body.tipo == "nome") {
     Usuario.find({ nome: new RegExp(req.body.pesquisa, "i") }).then(function (
       docs
     ) {
-      res.render("list.ejs", { Usuarios: docs });
+      res.render("usuario/list.ejs", { Usuarios: docs });
     });
   } else {
     Usuario.find({ email: new RegExp(req.body.pesquisa, "i") }).then(function (
       docs
     ) {
-      res.render("list.ejs", { Usuarios: docs });
+      res.render("usuario/list.ejs", { Usuarios: docs });
     });
   }
 });
 
 //rota de abrir tela do add
-app.get("/add", function (req, res) {
-  res.render("index.ejs", {});
+app.get("/usuario/add", function (req, res) {
+  res.render("usuario/add.ejs", {});
+});
+//fim abrir tela de add
+
+//rota de abrir tela do add
+app.get("/projeto/add", function (req, res) {
+  res.render("projeto/add.ejs", {});
 });
 //fim abrir tela de add
 
 //adicionar dados no banco
-app.post("/add", upload.single("foto"), function (req, res) {
+app.post("/usuario/add", upload.single("foto"), function (req, res) {
   var usuario = new Usuario({
     nome: req.body.nome,
     email: req.body.email,
@@ -54,44 +61,64 @@ app.post("/add", upload.single("foto"), function (req, res) {
     if (err) {
       res.send("Aconteceu o seguinte erro: " + err);
     } else {
-      res.redirect("/");
+      res.redirect("/usuario/");
     }
   });
 });
 //fim adicionar dados no banco
 
-app.get("/edt/:id", function (req, res) {
+//adicionar dados no banco
+app.post("/projeto/add", upload.single("foto"), function (req, res) {
+  var projeto = new Projeto({
+    nome: req.body.nome,
+    descricao: req.body.descricao,
+    dataInicio: req.body.dataInicio,
+    previsaoTermino: req.body.previsoTermino,
+    foto: req.file.filename,
+  });
+
+  projeto.save(function (err, docs) {
+    if (err) {
+      res.send("Aconteceu o seguinte erro: " + err);
+    } else {
+      res.redirect("/projeto/");
+    }
+  });
+});
+//fim adicionar dados no banco
+
+app.get("/usuario/edt/:id", function (req, res) {
   Usuario.findById(req.params.id).then(function (docs) {
     console.log(docs);
-    res.render("edit.ejs", { Usuario: docs });
+    res.render("usuario/edit.ejs", { Usuario: docs });
   });
 });
 
-app.post("/edt/:id", function (req, res) {
+app.post("/usuario/edt/:id", upload.single("foto"), function (req, res) {
   Usuario.findByIdAndUpdate(
     req.params.id,
     {
       nome: req.body.nome,
       email: req.body.email,
       senha: req.body.senha,
-      foto: req.body.foto,
+      foto: req.file.filename,
     },
     function (err, docs) {
       if (err) {
         res.send("Aconteceu um erro:" + err);
       } else {
-        res.redirect("/");
+        res.redirect("/usuario/");
       }
     }
   );
 });
 
-app.get("/del/:id", function (req, res) {
+app.get("/usuario/del/:id", function (req, res) {
   Usuario.findByIdAndDelete(req.params.id, function (err, doc) {
     if (err) {
       res.send("Aconteceu o seguinte erro: " + err);
     } else {
-      res.redirect("/");
+      res.redirect("/usuario/");
     }
   });
 });
