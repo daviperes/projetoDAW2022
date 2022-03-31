@@ -6,6 +6,7 @@ var ProjetoSchema = conexao.Schema({
   foto: { type: "String" },
   dataInicio: { type: "Date" },
   previsaoTermino: { type: "Date" },
+  integrantes: [conexao.Schema.Types.ObjectId],
 });
 
 module.exports = conexao.model("Projeto", ProjetoSchema);

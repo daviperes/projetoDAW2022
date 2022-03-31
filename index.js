@@ -13,6 +13,10 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 //configs
 
+app.get("/", function (req, res) {
+  res.render("inicial.ejs");
+});
+
 //rota para listar dados
 app.get("/usuario/", function (req, res) {
   Usuario.find({}).then(function (docs) {
