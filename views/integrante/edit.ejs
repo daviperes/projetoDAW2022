@@ -1,0 +1,15 @@
+<%-include('../cabecalho.ejs');%>
+   <form method="post" enctype="multipart/form-data">
+    Id: <input type="text" name="id" readonly value="<%=Projeto._id%>"><br>   
+    Nome: <input type="text" name="nome" 
+        placeholder="Digite seu nome" value="<%=Projeto.nome%>"><br>
+    Descrição: <input type="text" name="descricao" 
+        placeholder="Digite a descrição do projeto" value="<%=Projeto.descricao%>"><br>
+    Data de inicio do projeto: <input type="date" 
+        name="dataInicio" value="<%=Projeto.dataInicio%>"><br>
+    Previsão de termino do projeto: <input type="date" 
+        name="previsaoTermino" value="<%=Projeto.previsaoTermino%>"><br>
+    Foto: <input type="file" name="foto"><br>
+       <input type="submit" value="Enviar">
+   </form> 
+<%-include('../rodape.ejs');%>

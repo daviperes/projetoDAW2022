@@ -13,10 +13,12 @@ app.use(express.urlencoded({ extended: false }));
 //importando rotas
 const usuarioRoute = require("./routes/usuarioRoute");
 const projetoRoute = require("./routes/projetoRoute");
+const integranteRoute = require("./routes/integranteRoute");
 //importando rotas
 
 app.use("/", usuarioRoute);
 app.use("/", projetoRoute);
+app.use("/", integranteRoute);
 
 app.listen("3000", function () {
   console.log("O servidor foi iniciado na porta 3000");
