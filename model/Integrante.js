@@ -8,4 +8,4 @@ var IntegranteSchema = conexao.Schema({
   projeto: { type: conexao.Schema.Types.ObjectId },
 });
 
-module.exports = conexao.model("Usuario", UsuarioSchema);
+module.exports = conexao.model("Integrante", IntegranteSchema);
