@@ -26,7 +26,7 @@ function add(req, res) {
     previsaoTermino: req.body.previsaoTermino,
   });
   if (req.file.filename != "") {
-    usuario.foto = req.file.filename;
+    projeto.foto = req.file.filename;
   }
 
   projeto.save(function (err, docs) {

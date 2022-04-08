@@ -9,28 +9,30 @@
         <tr>
             <th>Id</th>
             <th>Nome</th>
-            <th>Data de inicio</th>
-            <th>Previsão de fim</th>
+            <th>Email</th>
+            <th>Endereço</th>
+            <th>Projeto</th>
             <th>Foto</th>
             <th>Editar</th>
             <th>Deletar</th>
         </tr>
-        <% Projetos.forEach(function(projeto){  %>
+        <% Integrantes.forEach(function(integrante){  %>
         <tr>
-            <td><%=projeto._id%></td>
-            <td><%=projeto.nome%></td>
-            <td><%=projeto.dataInicio%></td>
-            <td><%=projeto.previsaoTermino%></td>
+            <td><%=integrante._id%></td>
+            <td><%=integrante.nome%></td>
+            <td><%=integrante.email%></td>
+            <td><%=integrante.endereco%></td>
+            <td><%=integrante.projeto%></td>
             <td>
-                <img class="foto-user" src="/fotos/<%=projeto.foto%>">                
+                <img class="foto-user" src="/fotos/<%=integrante.foto%>">                
             </td>
             <td>
-                <a href="/projeto/edt/<%=projeto._id%>">
+                <a href="/integrante/edt/<%=integrante._id%>">
                     <img src="/images/edit.png">
                 </a>
             </td>
             <td>
-                <a href="/projeto/del/<%=projeto._id%>">
+                <a href="/integrante/del/<%=integrante._id%>">
                     <img src="/images/lixeira.png">
                 </a>
             </td>

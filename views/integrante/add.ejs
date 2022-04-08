@@ -1,12 +1,19 @@
 <%-include('../cabecalho.ejs');%>
    <form method="post" enctype="multipart/form-data">
        Nome: <input type="text" name="nome" 
-        placeholder="Digite seu nome"><br>
-       Descrição: <input type="text" name="descricao" 
-        placeholder="Digite a descrição do projeto"><br>
-       Data de inicio do projeto: <input type="date" name="dataInicio"><br>
-       Previsão de termino do projeto: <input type="date" name="previsaoTermino"><br>
-       Foto: <input type="file" name="foto"><br>
+        placeholder="Digite seu nome" required><br>
+       Email: <input type="email" name="email" 
+        placeholder="Digite a descrição do projeto" required><br>
+       Endereço: <input type="text" name="endereco" required placeholder="Digite seu endereço"><br>
+       Projeto: 
+       <select name="projeto">
+            <option value="">Escolha o projeto do integrante</option>
+            <% Projetos.forEach(function(projeto){ %>
+                <option value="<%=projeto._id%>"><%=projeto.nome%></option>
+            <% }) %>
+       </select>
+       <br>
+       Foto: <input required type="file" name="foto"><br>
        <input type="submit" value="Enviar">
    </form> 
 <%-include('../rodape.ejs');%>

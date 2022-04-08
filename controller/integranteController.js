@@ -1,4 +1,5 @@
 var Integrante = require("../model/Integrante");
+var Projeto = require("../model/Projeto");
 
 function listarTudo(req, res) {
   Integrante.find({}).then(function (docs) {
@@ -23,7 +24,9 @@ function listarFiltro(req, res) {
 }
 
 function abreAdd(req, res) {
-  res.render("integrante/add.ejs", {});
+  Projeto.find({}).then(function (projetos) {
+    res.render("integrante/add.ejs", { Projetos: projetos });
+  });
 }
 
 function add(req, res) {

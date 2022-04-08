@@ -1,15 +1,17 @@
 <%-include('../cabecalho.ejs');%>
    <form method="post" enctype="multipart/form-data">
-    Id: <input type="text" name="id" readonly value="<%=Projeto._id%>"><br>   
-    Nome: <input type="text" name="nome" 
-        placeholder="Digite seu nome" value="<%=Projeto.nome%>"><br>
-    Descrição: <input type="text" name="descricao" 
-        placeholder="Digite a descrição do projeto" value="<%=Projeto.descricao%>"><br>
-    Data de inicio do projeto: <input type="date" 
-        name="dataInicio" value="<%=Projeto.dataInicio%>"><br>
-    Previsão de termino do projeto: <input type="date" 
-        name="previsaoTermino" value="<%=Projeto.previsaoTermino%>"><br>
-    Foto: <input type="file" name="foto"><br>
-       <input type="submit" value="Enviar">
+        Id: <input type="text" readonly name="id" value="<%=Integrante._id%>">   
+        Nome: <input type="text" name="nome" 
+        placeholder="Digite seu nome" required value="<%=Integrante.nome%>"><br>
+        Email: <input type="email" name="email" 
+        placeholder="Digite a descrição do projeto" required value="<%=Integrante.email%>"><br>
+        Endereço: <input type="text" name="endereco" required placeholder="Digite seu endereço" value="<%=Integrante.endereco%>"><br>
+        Projeto: 
+        <select name="projeto">
+            <option value="">Escolha o projeto do integrante</option> 
+        </select>
+        <br>
+        Foto: <input required type="file" name="foto"><br>
+        <input type="submit" value="Enviar">
    </form> 
 <%-include('../rodape.ejs');%>
