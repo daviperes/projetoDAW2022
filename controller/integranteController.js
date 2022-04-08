@@ -2,9 +2,11 @@ var Integrante = require("../model/Integrante");
 var Projeto = require("../model/Projeto");
 
 function listarTudo(req, res) {
-  Integrante.find({}).then(function (docs) {
-    res.render("integrante/list.ejs", { Integrantes: docs });
-  });
+  Integrante.find({})
+    .populate({ path: "projeto", model: "Projeto" })
+    .then(function (docs) {
+      res.render("integrante/list.ejs", { Integrantes: docs });
+    });
 }
 
 function listarFiltro(req, res) {
@@ -35,6 +37,7 @@ function add(req, res) {
     email: req.body.email,
     endereco: req.body.endereco,
     senha: req.body.senha,
+    projeto: req.body.projeto,
   });
   if (req.file.filename != "") {
     integrante.foto = req.file.filename;
