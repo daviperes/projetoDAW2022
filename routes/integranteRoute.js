@@ -3,7 +3,7 @@ const Router = express.Router();
 var upload = require("../config/multer.js");
 var integranteController = require("../controller/integranteController");
 
-Router.get("/integrante/", integranteController.listaTudo);
+Router.get("/integrante/", integranteController.listarTudo);
 
 Router.post("/integrante/", integranteController.listarFiltro);
 

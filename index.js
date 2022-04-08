@@ -16,6 +16,11 @@ const projetoRoute = require("./routes/projetoRoute");
 const integranteRoute = require("./routes/integranteRoute");
 //importando rotas
 
+app.get("/", function (req, res) {
+  res.render("index.ejs", {});
+});
+app.post("/", function (req, res) {});
+
 app.use("/", usuarioRoute);
 app.use("/", projetoRoute);
 app.use("/", integranteRoute);
