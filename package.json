@@ -15,12 +15,20 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.2",
-    "mongoose": "^6.2.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.11",
     "multer": "^1.4.4",
     "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dapporcellis/apagar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dapporcellis/apagar/issues"
+  },
+  "homepage": "https://github.com/dapporcellis/apagar#readme"
 }

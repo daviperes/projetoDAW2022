@@ -1,0 +1,19 @@
+<%-include('../cabecalho.ejs');%>
+   <form method="post" enctype="multipart/form-data">
+       Nome: <input type="text" name="nome" 
+        placeholder="Digite o nome da peça" required><br>
+       Tamanho: <input type="text" name="tamanho" 
+        placeholder="Digite o tamanho da peça" required><br>
+       Marca: 
+       <select name="marca">
+            <option value="">Escolha a marca da roupa</option>
+            <% Marcas.forEach(function(marca){ %>
+                <option value="<%=marca._id%>"><%=marca.nome%></option>
+            <% }) %>
+       </select>
+       <br>
+       Foto: <input required type="file" name="foto"><br>
+       <input type="submit" value="Enviar">
+   </form> 
+
+<%-include('../rodape.ejs');%>

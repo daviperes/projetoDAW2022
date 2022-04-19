@@ -1,0 +1,9 @@
+<%-include('../cabecalho.ejs');%>
+   <form method="post" enctype="multipart/form-data">
+    Id: <input type="text" name="id" readonly value="<%=Marca._id%>"><br>   
+    Nome: <input type="text" name="nome" 
+        placeholder="Digite seu nome" value="<%=Marca.nome%>"><br>
+    Logo: <input type="file" name="logo"><br>
+       <input type="submit" value="Enviar">
+   </form> 
+<%-include('../rodape.ejs');%>

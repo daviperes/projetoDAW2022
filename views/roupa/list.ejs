@@ -7,34 +7,32 @@
 
 <table>
         <tr>
-            <th>Id</th>
+            <!--<th>Id</th>-->
             <th>Nome</th>
-            <th>Email</th>
-            <th>Endereço</th>
-            <th>Projeto</th>
+            <th>Tamanho</th>
+            <th>Marca</th>
             <th>Foto</th>
             <th>Editar</th>
             <th>Deletar</th>
         </tr>
-        <% Integrantes.forEach(function(integrante){  %>
+        <% Roupas.forEach(function(roupa){  %>
         <tr>
-            <td><%=integrante._id%></td>
-            <td><%=integrante.nome%></td>
-            <td><%=integrante.email%></td>
-            <td><%=integrante.endereco%></td>
+            <!--<td><%=roupa._id%></td>-->
+            <td><%=roupa.nome%></td>
+            <td><%=roupa.tamanho%></td>
             <td>
-                <img class="foto-user" src="/fotos/<%=integrante.projeto.foto%>">
+                <img class="foto-user" src="/fotos/<%=roupa.marca.logo%>">
             </td>
             <td>
-                <img class="foto-user" src="/fotos/<%=integrante.foto%>">                
+                <img class="foto-user" src="/fotos/<%=roupa.foto%>">                
             </td>
             <td>
-                <a href="/integrante/edt/<%=integrante._id%>">
+                <a href="/roupa/edt/<%=roupa._id%>">
                     <img src="/images/edit.png">
                 </a>
             </td>
             <td>
-                <a href="/integrante/del/<%=integrante._id%>">
+                <a href="/roupa/del/<%=roupa._id%>">
                     <img src="/images/lixeira.png">
                 </a>
             </td>
